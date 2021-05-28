@@ -790,7 +790,7 @@ false Zulu
       <ObjectId>13442</ObjectId>
       <Comment>default administrative connection database</Comment>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>708</IntrospectionStateNumber>
+      <IntrospectionStateNumber>716</IntrospectionStateNumber>
       <Current>1</Current>
     </database>
     <database id="3" parent="1" name="shop">
@@ -885,7 +885,7 @@ UC/10
 </Acl>
       <StateNumber>287</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>709</IntrospectionStateNumber>
+      <IntrospectionStateNumber>717</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="23" parent="2" name="adminpack">
@@ -993,60 +993,5 @@ UC/10
       <HandlerId>335</HandlerId>
       <Type>index</Type>
     </access-method>
-    <table id="36" parent="22" name="company">
-      <ObjectId>33014</ObjectId>
-      <Owner>postgres</Owner>
-      <StateNumber>704</StateNumber>
-    </table>
-    <column id="37" parent="36" name="id">
-      <Position>1</Position>
-      <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>704</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="38" parent="36" name="name">
-      <Position>2</Position>
-      <DataType>text|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>704</StateNumber>
-      <TypeId>25</TypeId>
-    </column>
-    <column id="39" parent="36" name="age">
-      <Position>3</Position>
-      <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>704</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="40" parent="36" name="address">
-      <Position>4</Position>
-      <DataType>varchar(50)|0s</DataType>
-      <StateNumber>704</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="41" parent="36" name="salary">
-      <Position>5</Position>
-      <DataType>real|0s</DataType>
-      <StateNumber>704</StateNumber>
-      <TypeId>700</TypeId>
-    </column>
-    <index id="42" parent="36" name="company_pkey">
-      <ObjectId>33020</ObjectId>
-      <StateNumber>704</StateNumber>
-      <ColNames>id</ColNames>
-      <Unique>1</Unique>
-      <Primary>1</Primary>
-      <AccessMethodId>403</AccessMethodId>
-      <CollationIds>0</CollationIds>
-      <ClassIds>1978</ClassIds>
-    </index>
-    <key id="43" parent="36" name="company_pkey">
-      <ObjectId>33021</ObjectId>
-      <StateNumber>704</StateNumber>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>company_pkey</UnderlyingIndexName>
-    </key>
   </database-model>
 </dataSource>

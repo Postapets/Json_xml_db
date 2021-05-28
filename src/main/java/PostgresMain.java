@@ -19,12 +19,12 @@ public class PostgresMain {
 
 //            //-------------- CREATE TABLE ---------------
 //            stmt = c.createStatement();
-//            sql = "CREATE TABLE COMPANY " +
-//                    "(ID INT PRIMARY KEY     NOT NULL," +
-//                    " NAME           TEXT    NOT NULL, " +
-//                    " AGE            INT     NOT NULL, " +
-//                    " ADDRESS        VARCHAR(50), " +
-//                    " SALARY         REAL)";
+//            sql = "create table company " +
+//                    "(id int primary key not null," +
+//                    " name           text not null, " +
+//                    " age            int not null, " +
+//                    " address        varchar(50), " +
+//                    " salary         real)";
 //            stmt.executeUpdate(sql);
 //            stmt.close();
 //            c.commit();
@@ -32,52 +32,16 @@ public class PostgresMain {
 //
 //            //--------------- INSERT ROWS ---------------
 //            stmt = c.createStatement();
-//            sql = "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) VALUES (1, 'Paul', 32, 'California', 20000.00 );" +
-//                    "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) VALUES (2, 'Allen', 25, 'Texas', 15000.00 );" +
-//                    "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) VALUES (3, 'Teddy', 23, 'Norway', 20000.00 );" +
-//                    "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) VALUES (4, 'Mark', 25, 'Rich-Mond ', 65000.00 );";
+//            sql = "insert into company (id,name,age,address,salary) values (1, 'Саша', 21, 'Белгород', 24000.00 );" +
+//                    "insert into company (id,name,age,address,salary) values (2, 'Петя', 28, 'Псков', 150000.00 );" +
+//                    "insert into company (id,name,age,address,salary) values (3, 'Женя', 23, 'Краснодар', 21000.00 );" +
+//                    "insert into company (id,name, age,address,salary) values (4, 'Костя', 25, 'Ростов-На-Дону', 44000.00 );";
 //            stmt.executeUpdate(sql);
 //
 //            stmt.close();
 //            c.commit();
 //            System.out.println("-- Records created successfully");
-
-
-//            //-------------- UPDATE DATA ------------------
-//            stmt = c.createStatement();
-//            sql = "UPDATE COMPANY set SALARY = 25000.00 where ID=1;";
-//            stmt.executeUpdate(sql);
-//            c.commit();
-//            stmt.close();
-//
-//            System.out.println("-- Operation UPDATE done successfully");
-
-
-            //--------------- SELECT DATA ------------------
-//            stmt = c.createStatement();
-//            ResultSet rs = stmt.executeQuery( "SELECT * FROM COMPANY;" );
-//            while ( rs.next() ) {
-//                int id = rs.getInt("id");
-//                String  name = rs.getString("name");
-//                int age  = rs.getInt("age");
-//                String  address = rs.getString("address");
-//                float salary = rs.getFloat("salary");
-//                System.out.println(String.format("ID=%s NAME=%s AGE=%s ADDRESS=%s SALARY=%s",id,name,age,address,salary));
-//            }
-//            rs.close();
-//            stmt.close();
-//            c.commit();
-//            System.out.println("-- Operation SELECT done successfully");
-
-
-//            //-------------- DELETE DATA ----------------------
-//            stmt = c.createStatement();
-//            sql = "DELETE from COMPANY where ID=2;";
-//            stmt.executeUpdate(sql);
-//            c.commit();
-//            stmt.close();
-//            System.out.println("-- Operation DELETE done successfully");
-
+            //Создаем или записываем в json  файл с помощью copy to
             stmt = c.createStatement();
             stmt.execute( "COPY (SELECT row_to_json(data) FROM (" +
                     "SELECT * FROM COMPANY) data) TO 'C:\\test\\files\\JSON_file.json';" );
@@ -88,6 +52,7 @@ public class PostgresMain {
             ResultSet rs = stmt.executeQuery( "SELECT * FROM COMPANY;" );
             rs = stmt.executeQuery( "SELECT * FROM COMPANY;" );
 
+            //вывод данных созданной таблицы
             while ( rs.next() ) {
                 int id = rs.getInt("id");
                 String  name = rs.getString("name");
@@ -107,7 +72,7 @@ public class PostgresMain {
             System.err.println(e.getClass().getName()+": "+e.getMessage());
             System.exit(0);
         }
-        System.out.println("-- All Operations done successfully");
+        System.out.println("                                                                         PostgresMain отработал успешно");
 
     }
 
@@ -115,6 +80,5 @@ public class PostgresMain {
         PGDatabase();
         ParserJsonToXml.getxml();
         SqlLiteDB.insertIntoSqlite();
-
     }
 }

@@ -13,7 +13,6 @@ import java.sql.Statement;
 public class SqlLiteDB {
 
     public static void main(String[] args) {
-        insertIntoSqlite();
     }
     public static void insertIntoSqlite(){
         Connection c;
@@ -24,14 +23,14 @@ public class SqlLiteDB {
             c.setAutoCommit(false);
             System.out.println("Opened database");
             String sql;
-//
+
 //            stmt = c.createStatement();
 //            sql = "CREATE TABLE COMPANY " +
-//                    "(ID INT PRIMARY KEY     NOT NULL," +
-//                    " NAME           TEXT    NOT NULL, " +
-//                    " AGE            INT     NOT NULL, " +
-//                    " ADDRESS        VARCHAR(50), " +
-//                    " SALARY         REAL)";
+//                    "(id int primary key not null," +
+//                    " name           text not null, " +
+//                    " age            int not null, " +
+//                    " address        varchar(50), " +
+//                    " salary         real)";
 //            stmt.executeUpdate(sql);
 //            stmt.close();
 //            c.commit();
@@ -46,7 +45,8 @@ public class SqlLiteDB {
                     Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
                     User user = (User) jaxbUnmarshaller.unmarshal(new StringReader(line));
                     stmt = c.createStatement();
-                    stmt.executeUpdate(String.format("INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) VALUES (%d, '%s', %d, '%s', %d );",user.getId(),user.getName(),user.getAge(),user.getAddress(),user.getSalary()));
+                    stmt.executeUpdate(String.format("INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) " +
+                            "VALUES (%d, '%s', %d, '%s', %d );",user.getId(),user.getName(),user.getAge(),user.getAddress(),user.getSalary()));
                     stmt.close();
                 }
             } catch (IOException e) {
@@ -72,6 +72,7 @@ public class SqlLiteDB {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        System.out.println("                                                                         insertIntoXml отработал успешно");
     }
 
 }

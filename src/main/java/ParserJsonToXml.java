@@ -24,12 +24,11 @@ public class ParserJsonToXml {
             fw.append("<user>").append(XML.toString(json)).append("</user>").append("\n");
         }
         fw.close();
-    } catch(
-    IOException e)
-
+    } catch(IOException e)
     {
         e.printStackTrace();
     }
+        System.out.println("                                                                         getxml отработал успешно");
     }
 }
 
